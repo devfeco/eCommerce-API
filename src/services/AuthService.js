@@ -31,6 +31,6 @@ export default class AuthService{
             Firstname:result.Firstname,
             Lastname:result.Lastname,
         }
-        return {user,credentials}
+        return {status:201,user,credentials}
     }
 }

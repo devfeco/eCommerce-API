@@ -7,10 +7,8 @@ const authService = new AuthService();
 export const Register = catchAsyncErrors(
     async (req,res,next) => {
         const result = await authService.register(req);
-        res.status(201).json({
-            status:"SUCCESS",
-            code:201,
-            result
+        res.status(result.status).json({
+            ...result
         });
     }
 )
