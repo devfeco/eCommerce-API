@@ -1,7 +1,7 @@
 import ErrorHandler from '../utils/errorhandler.js'
 import {logEvents} from '../middleware/logEvents.js'
 
-export default  (err,req,res,next) => {
+export default (err,req,res,next) => {
     err.statusCode = err.statusCode || 500;
     err.message = err.message || "Internal Server Error";
 
@@ -11,7 +11,7 @@ export default  (err,req,res,next) => {
         err = new ErrorHandler(message,400);
     }
 
-    logEvents(`${statusCode}: ${message}`, 'errLog.txt');
+    logEvents(`${err.statusCode}: ${err.message}`, 'errLog.txt');
 
     res.status(err.statusCode).json({
         success:false,

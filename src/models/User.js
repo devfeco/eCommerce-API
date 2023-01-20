@@ -4,6 +4,10 @@ import bcrypt from 'bcrypt';
 import {v1} from 'uuid'
 
 const userSchema = new mongoose.Schema({
+    Displayname:{
+        type:String,
+        default:function getName(){return this.Middlename==="" ? `${this.Firstname} ${this.Lastname}` : `${this.Firstname} ${this.Middlename} ${this.Lastname}`}
+    },
     Firstname:{
         type:String,
         required:[true,"Please enter your first name"],
@@ -13,7 +17,6 @@ const userSchema = new mongoose.Schema({
     Middlename:{
         type:String,
         maxLength:[30,"Middle name cannot exceed 30 characters"],
-        minLength:[2,"Middle name should have more than 2 characters"]
     },
     Lastname:{
         type:String,
@@ -39,6 +42,10 @@ const userSchema = new mongoose.Schema({
             type:String,
             maxLength:[10,"Phone number must be 10 characters"]
         }
+    },
+    PhoneConfirmed:{
+        type:Boolean,
+        default:false
     },
     Role:{
         type:String,
@@ -90,6 +97,22 @@ const userSchema = new mongoose.Schema({
         Address_Id:{
             type:String,
         },
+        Street1:{
+            type:String,
+            required:[true,"Please enter your street"]
+        },
+        Street2:{
+            type:String
+        },
+        City:{
+            type:String,
+            required:[true,"Please enter your city"]
+        },
+        ZipCode:{
+            type:String,
+            required:[true,"Please enter your zipcode"],
+            maxLength:[10,"Zipcode cannot exceed 10 characters"]
+        }
     },
     refreshTokens:[String],
     resetPasswordToken:String,

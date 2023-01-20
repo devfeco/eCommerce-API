@@ -1,0 +1,17 @@
+20230120	15:36:01	d6192f20-7f0e-47fb-851d-b7441499aea7	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	15:36:11	2fe87936-104a-4ab2-8629-27085dc8e35b	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	15:44:14	63943aa7-0fdf-4fbe-937a-57a61328df39	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	16:08:09	99a02730-ce68-4d7a-ae6e-3c3be9678bf2	500: User validation failed: Password: Please enter your password, Email: Please enter your Email, Lastname: Please enter your last name, Firstname: Please enter your first name
+20230120	16:08:35	ce3c342e-3fde-4e3e-8132-a2f3ab57bbe5	500: User validation failed: Password: Please enter your password, Email: Please enter your Email, Lastname: Please enter your last name, Firstname: Please enter your first name
+20230120	16:09:02	de280139-b2d5-4dea-9a97-53693c0bc591	500: User validation failed: Password: Please enter your password, Email: Please enter your Email, Lastname: Please enter your last name, Firstname: Please enter your first name
+20230120	16:09:33	821e6b5f-8f59-43fe-8d01-438ea8282e12	500: User validation failed: Password: Please enter your password, Email: Please enter your Email, Lastname: Please enter your last name, Firstname: Please enter your first name
+20230120	16:10:40	72faab8b-e657-43ed-8ce4-c976980ae1c0	500: User validation failed: Middlename: Middle name should have more than 2 characters
+20230120	16:10:53	9f312155-42d6-4666-a7b1-2a27ad3621b6	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	16:11:09	dd2b953b-c354-46af-aa3c-6c6e872b4fda	500: res.status(...).son is not a function
+20230120	16:11:39	c8c0a0b6-3dd7-4bc0-ac3e-6c1553dae9ba	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	16:36:28	483f5dd8-1789-47cd-ae11-2bf91b8e16b3	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	16:38:46	9f2d7353-f90c-425c-9d86-223e7af926c6	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	16:39:29	091d3293-3fff-48f7-b7f4-e4a862193f93	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	16:39:42	76b36146-d784-4676-a9ad-d4b5dedda0fa	500: res.status(...).son is not a function
+20230120	16:39:50	e5836ed4-6f7d-4961-ab27-4968dabf0c57	500: E11000 duplicate key error collection: test.users index: Email_1 dup key: { Email: "feyzullah.ardahan@gmail.com" }
+20230120	16:42:02	002860e5-61af-494c-bcde-1c75501fef63	500: User validation failed: Firstname: Please enter your first name
