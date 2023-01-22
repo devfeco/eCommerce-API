@@ -40,9 +40,11 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/api/',apiLimiter);
 
-import { Register } from './contollers/authController.js';
+import { Register , Login , RefreshToken } from './contollers/AuthController.js';
 
 app.post('/',Register);
+app.post('/login',Login);
+app.get('/refresh',RefreshToken);
 
 app.post('/test',async (req,res,next) => {
     const card = await Card.create(req.body);

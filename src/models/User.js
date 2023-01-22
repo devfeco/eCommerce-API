@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator";
-import bcrypt from 'bcrypt';
+import {hash , compare} from 'bcrypt';
 import {v1} from 'uuid'
 
 const userSchema = new mongoose.Schema({
@@ -114,21 +114,21 @@ const userSchema = new mongoose.Schema({
             maxLength:[10,"Zipcode cannot exceed 10 characters"]
         }
     },
-    refreshTokens:[String],
-    resetPasswordToken:String,
-    resetPasswordExpire:Date
+    RefreshTokens:[String],
+    ResetPasswordToken:String,
+    ResetPasswordExpire:Date
 },{timestamps:true});
 
 //Hash the password
 userSchema.pre("save",async function(next){
     if(!this.isModified('Password'))
         next();
-    this.Password = await bcrypt.hash(this.Password,10)
+    this.Password = await hash(this.Password,10)
 });
 
 //Compare Password
-userSchema.static.comparePassword = async function(enteredPassword){
-    return await bcrypt.compare(enteredPassword,this.Password);
+userSchema.methods.comparePassword = async function(enteredPassword){
+    return await compare(this.Password,enteredPassword);
 }
 
 export default mongoose.model("User",userSchema);

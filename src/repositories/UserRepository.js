@@ -22,6 +22,21 @@ export default class UserRepository{
      * @returns User object
      */
     async GetUserByEmail(email){
-        return await User.findOne({Email:email});
+        return await User.findOne({Email:email}).select('+Password');
+    }
+    /**
+     * 
+     * @param {*} refreshToken 
+     * @returns 
+     */
+    async GetUserByRefreshToken(refreshToken){
+        return await User.findOne({RefreshTokens:refreshToken});
+    }
+    /**
+     * @param {Object} user 
+     * @returns saved user info
+     */
+    async Save(user){
+        return await user.save();
     }
 }

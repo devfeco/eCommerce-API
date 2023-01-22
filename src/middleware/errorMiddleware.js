@@ -2,7 +2,7 @@ import ErrorHandler from '../utils/errorhandler.js'
 import {logEvents} from '../middleware/logEvents.js'
 
 export default (err,req,res,next) => {
-    err.statusCode = err.statusCode || 500;
+    err.status = err.status || 500;
     err.message = err.message || "Internal Server Error";
 
     //Wrong Mongodb Id Error
@@ -14,8 +14,8 @@ export default (err,req,res,next) => {
 
     logEvents(`${err.statusCode}: ${err.message}`, 'errLog.txt');
 
-    res.status(err.statusCode).json({
-        status:err.statusCode,
+    res.status(err.status).json({
+        status:err.status,
         error:err.message
     });
 }

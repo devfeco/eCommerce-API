@@ -19,3 +19,45 @@
 20230120	22:29:16	251f8f02-8d5c-4e01-900c-361879a63163	400: Email already exists
 20230120	22:29:25	978d8ac3-6ae0-4708-868b-80521c86a0ec	500: User validation failed: Firstname: Please enter your first name
 20230120	22:29:32	4a9644ea-33c6-4674-a833-ddc9e0f8f8d5	400: Email already exists
+20230120	22:39:31	7a11d277-dfb9-4c62-899b-26a2c90c8e48	500: Invalid status code: undefined
+20230120	22:40:13	faff7450-8773-4c57-8fc6-7a6286d29da4	500: Invalid status code: undefined
+20230120	22:41:00	99966b0d-f408-4893-902b-31e3112bdac3	500: Invalid status code: undefined
+20230120	22:41:13	9437aec4-4582-44fe-9571-3c8919c96d14	400: Email already exists
+20230120	22:41:45	26a63a6c-0bd2-45a0-881c-b9474becad58	500: Invalid status code: undefined
+20230120	22:42:12	168744b9-1943-42ec-8fac-c1a92153961a	500: Invalid status code: undefined
+20230120	22:42:49	45ddb181-32ee-43b9-b163-1324847e5a56	500: Invalid status code: undefined
+20230120	22:43:12	96a4ff6a-9996-40d1-b1b7-6a81a510a0ec	500: Invalid status code: undefined
+20230120	22:43:53	f563dee0-569d-4c00-aeec-25e3a0dbd8e2	500: Invalid status code: undefined
+20230120	22:45:01	11afd5eb-7a19-40ff-acd0-30176bb7fe9e	500: Invalid status code: undefined
+20230120	22:45:59	cb9f4478-1ffd-472a-990b-a6b9c4fa0814	500: Invalid status code: undefined
+20230120	22:49:34	14006fbc-f0ca-48d9-852b-f9749ba9cb7f	500: Invalid status code: undefined
+20230120	22:55:45	36353391-ea1f-452d-8fe5-ded155cb3f9e	undefined: Email already exists
+20230120	23:31:15	cd85baf4-7f66-4a57-b646-3e44f6a691ed	undefined: data and hash arguments required
+20230120	23:31:51	1a4d2e95-020a-445e-98ee-663c26090490	undefined: data and hash arguments required
+20230120	23:31:54	e32968e5-5586-4fa0-8398-fe37f34d1c7b	undefined: data and hash arguments required
+20230120	23:33:54	8ba2d113-32f8-4a43-be50-0fda91b6f178	undefined: this.userRepository.GetUserByEmail(...).select is not a function
+20230122	14:05:20	8289e89a-44ed-422b-88f2-a44aa6cd718a	undefined: Email already exists
+20230122	14:44:43	e508b942-64a5-49db-9653-37e924944687	undefined: Email already exists
+20230122	14:49:45	c91ebb5e-c63b-4e9d-a5c5-a36b167ee21a	undefined: Invalid status code: undefined
+20230122	14:50:51	888f28be-778f-4431-8788-6ccdafa42a6b	undefined: Invalid status code: undefined
+20230122	14:52:03	96a049ec-2830-4537-8dc2-a022dca6353a	undefined: Invalid status code: undefined
+20230122	14:52:56	3df4e8db-80e6-4ca9-b9ab-d73a9dd9089c	undefined: Invalid status code: undefined
+20230122	14:53:32	d7b4fc75-562a-4c74-bce2-a05f817550bd	undefined: Invalid status code: undefined
+20230122	14:54:37	db4c489a-71b1-491c-8f23-cb2c5d9d4fa9	undefined: Invalid status code: undefined
+20230122	14:55:08	b96e77a3-d4ac-489b-a54f-3dfee67e3bcc	undefined: Invalid status code: undefined
+20230122	14:55:17	0763fd60-5acb-496d-bb39-442f3f398296	undefined: Invalid status code: undefined
+20230122	14:55:31	3804f993-25c4-46c5-b355-db0d3fc02975	undefined: Invalid status code: undefined
+20230122	14:56:30	a1edb899-8813-499f-88d0-5a9676731740	undefined: Invalid status code: undefined
+20230122	14:56:40	c8fe046d-03a2-4f3c-a45c-665c2b1324de	undefined: Invalid status code: undefined
+20230122	14:57:10	8bef5416-ca44-41de-922e-b10e7f59804f	undefined: Invalid status code: undefined
+20230122	14:57:27	28923bc5-b3fa-4609-8363-488633766e07	undefined: Invalid status code: undefined
+20230122	14:57:43	cb7deb23-9ac0-4b3a-9aa5-1ca6d2a2f46c	undefined: Invalid status code: undefined
+20230122	14:58:02	3938727c-06dc-4599-b3e8-97252df9ba5e	undefined: Invalid status code: undefined
+20230122	14:58:14	c2a4aefa-0b4a-4a78-8ab4-9b1a8c4c3852	undefined: Invalid status code: undefined
+20230122	15:01:46	7dd5d632-8805-4b06-90a7-6f370b662226	undefined: Invalid status code: undefined
+20230122	15:02:11	ec617710-607e-499a-8542-0d6c7433f271	undefined: Invalid status code: undefined
+20230122	15:03:11	1515b138-4d6a-40cf-93fd-b6f2fa26dbad	undefined: Invalid status code: undefined
+20230122	15:05:57	4e398cc9-1644-4fab-8ef0-018376b79ad2	undefined: Invalid status code: undefined
+20230122	15:10:06	f07221bf-509e-4990-a421-e56077b534f7	undefined: Invalid status code: undefined
+20230122	15:11:08	f8c1b5fe-a51c-4bc3-aa5d-7534f7685ea5	undefined: Email already exists
+20230122	15:13:14	fec505f4-a1f8-446e-8a37-1cda4a100b71	undefined: Invalid status code: undefined
