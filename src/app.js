@@ -40,10 +40,11 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/api/',apiLimiter);
 
-import { Register , Login , RefreshToken } from './contollers/AuthController.js';
+import { Register , Login , RefreshToken , GetCurrentUser } from './contollers/AuthController.js';
 
 app.post('/',Register);
 app.post('/login',Login);
+app.get('/me',GetCurrentUser);
 app.get('/refresh',RefreshToken);
 
 app.post('/test',async (req,res,next) => {

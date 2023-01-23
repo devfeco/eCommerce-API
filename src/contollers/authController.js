@@ -5,7 +5,7 @@ const authService = new AuthService();
 
 export const Register = catchAsyncErrors(
     async (req,res,next) => {
-        const result = await authService.register(req);
+        const result = await authService.Register(req);
         res.status(result?.status).json({
             ...result,
             message:result?.message
@@ -32,3 +32,13 @@ export const RefreshToken = catchAsyncErrors(
         });
     }
 );
+
+export const GetCurrentUser = catchAsyncErrors(
+    async (req,res,next) => {
+        const result = await authService.GetCurrentUser(req);
+        res.status(result?.status).json({
+            ...result,
+            message:result?.message
+        });
+    }
+); 

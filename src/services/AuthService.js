@@ -9,7 +9,7 @@ export default class AuthService{
     constructor(){
         this.userRepository = new UserRepository();
     }
-    async register(req){
+    async Register(req){
         const result = await this.userRepository.Create(new CreateUserDTO(req.body));
         const credentials = this.GenerateAccessAndRefreshTokens(result)
         result.RefreshTokens = [credentials.refresh_token]
@@ -30,13 +30,12 @@ export default class AuthService{
         const foundUser = await this.userRepository.GetUserByEmail(loginUserDTO.Email); 
         if(!foundUser) return new ErrorHandler('Invalid email or password',401);
         const match = foundUser.comparePassword(loginUserDTO.Password);
-        if(match){
-            const credentials = this.GenerateAccessAndRefreshTokens(foundUser);
-            let newRefreshTokenArray = foundUser.RefreshTokens;
-            foundUser.RefreshTokens = [...newRefreshTokenArray,credentials.refresh_token];
-            const result = await this.userRepository.Save(foundUser);
-            return {status:200,credentials}
-        }
+        if(!match) return new ErrorHandler('Invalid email or password',401);
+        const credentials = this.GenerateAccessAndRefreshTokens(foundUser);
+        let newRefreshTokenArray = foundUser.RefreshTokens;
+        foundUser.RefreshTokens = [...newRefreshTokenArray,credentials.refresh_token];
+        await this.userRepository.Save(foundUser);
+        return {status:200,credentials}
     }
     async RefreshToken(req){
         const {refresh_token} = req.body;
@@ -46,8 +45,11 @@ export default class AuthService{
             jwt.verify(refresh_token,process.env.REFRESH_TOKEN_SECRET,async (err,decodeData) => {
                 if(err) return new ErrorHandler('Token is not valid!',403);
                 const hackedUser = await this.userRepository.GetUserById(decodeData.id);
-                hackedUser.RefreshTokens = [];
+                hackedUser.IsActive = false;
                 await this.userRepository.Save(hackedUser);
+                /**
+                 * @todo send recovery mail
+                 */
             });
             return new ErrorHandler('Token is not valid!!',403);
         }
@@ -65,6 +67,16 @@ export default class AuthService{
             await this.userRepository.Save(foundUser);
         });
         return {status:200,credentials}
+    }
+
+    async GetCurrentUser(req){
+        const authHeader = req.headers.authorization || req.headers.Authorization;
+        if(!authHeader?.startsWith('Bearer ')) return new ErrorHandler('You are not authenticated!',401);
+        const token = authHeader.split(' ')[1];
+        const decodedData = jwt.verify(token,process.env.ACCESS_TOKEN_SECRET);
+        const user = await this.userRepository.GetUserById(decodedData?.UserInfo.id);
+        if(!user) return new ErrorHandler('User not found!',400);
+        return {status:200,user}
     }
 
     GenerateAccessAndRefreshTokens(user){

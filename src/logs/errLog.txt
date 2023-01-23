@@ -61,3 +61,8 @@
 20230122	15:10:06	f07221bf-509e-4990-a421-e56077b534f7	undefined: Invalid status code: undefined
 20230122	15:11:08	f8c1b5fe-a51c-4bc3-aa5d-7534f7685ea5	undefined: Email already exists
 20230122	15:13:14	fec505f4-a1f8-446e-8a37-1cda4a100b71	undefined: Invalid status code: undefined
+20230122	17:59:00	0827b69f-7489-4fea-9cbe-dd70c21ae1c3	undefined: Invalid status code: undefined
+20230122	18:07:23	6535e002-1087-4993-af07-b2e7008dc602	undefined: Cannot read properties of undefined (reading 'UserInfo')
+20230122	18:07:43	a4a296f9-30a6-4bc9-9614-9cff8d7c7ef4	undefined: Cannot read properties of undefined (reading 'UserInfo')
+20230122	18:08:33	21ed7c43-9eca-4ff8-ade2-c5b82624617e	undefined: invalid signature
+20230122	18:08:58	34b516e8-ca5f-466c-9e23-cb9e52ec09e8	undefined: invalid signature
