@@ -23,6 +23,16 @@ export const Login = catchAsyncErrors(
     }
 );
 
+export const Logout = catchAsyncErrors(
+    async (req,res,next) => {
+        const result = await authService.Logout(req);
+        res.status(result?.status).json({
+            ...result,
+            message:result?.message
+        });
+    }
+);
+
 export const RefreshToken = catchAsyncErrors(
     async (req,res,next) => {
         const result = await authService.RefreshToken(req);

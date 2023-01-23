@@ -9,12 +9,7 @@ import errorMiddleware from './middleware/errorMiddleware.js'
 import cookieParser from 'cookie-parser';
 import credentials from './middleware/credentials.js'
 import {apiLimiter} from './utils/limiter.js'
-import catchAsyncErrors from './middleware/catchAsyncErrors.js'
-
-
-
-import Card from './models/Card.js'
-import User from './models/User.js'
+import AuthRouter from './routes/AuthRouter.js'
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -40,12 +35,7 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/api/',apiLimiter);
 
-import { Register , Login , RefreshToken , GetCurrentUser } from './contollers/AuthController.js';
-
-app.post('/',Register);
-app.post('/login',Login);
-app.get('/me',GetCurrentUser);
-app.get('/refresh',RefreshToken);
+app.use('/api/v1',AuthRouter);
 
 app.post('/test',async (req,res,next) => {
     const card = await Card.create(req.body);

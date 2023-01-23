@@ -201,3 +201,5 @@
 20230122	18:08:33	10275241-6af9-4e9a-8acc-e565d45ce10b	GET	undefined	/me
 20230122	18:08:58	5df52b15-bfe5-402b-9b27-93043ce86a43	GET	undefined	/me
 20230122	18:09:05	eb6564b2-2786-43ed-bc82-ee824a4f986f	GET	undefined	/me
+20230123	21:33:07	031dc210-9830-4d06-9a12-6e4b98c234f6	POST	undefined	/login
+20230123	21:39:50	87c23a4e-6a2e-47bb-ae85-d7912f2bf1a6	GET	undefined	/api/v1/logout

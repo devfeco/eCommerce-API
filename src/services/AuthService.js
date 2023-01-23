@@ -37,6 +37,19 @@ export default class AuthService{
         await this.userRepository.Save(foundUser);
         return {status:200,credentials}
     }
+
+    async Logout(req){
+        const {refresh_token} = req.body;
+        const foundUser = await this.userRepository.GetUserByRefreshToken(refresh_token);
+        if(foundUser){
+            const newRefreshTokenArray = foundUser.RefreshTokens.filter(rt => rt !== refresh_token);
+            foundUser.RefreshTokens = newRefreshTokenArray;
+            this.userRepository.Save(foundUser);
+            return {status:200}
+        }
+        return new ErrorHandler('Logout Failed!',400);
+    }
+
     async RefreshToken(req){
         const {refresh_token} = req.body;
         const foundUser = await this.userRepository.GetUserByRefreshToken(refresh_token); 
