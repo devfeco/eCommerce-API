@@ -66,3 +66,9 @@
 20230122	18:07:43	a4a296f9-30a6-4bc9-9614-9cff8d7c7ef4	undefined: Cannot read properties of undefined (reading 'UserInfo')
 20230122	18:08:33	21ed7c43-9eca-4ff8-ade2-c5b82624617e	undefined: invalid signature
 20230122	18:08:58	34b516e8-ca5f-466c-9e23-cb9e52ec09e8	undefined: invalid signature
+20230123	21:59:14	bb9cc831-3450-4421-ae5d-e72683077069	undefined: You are not authenticated!
+20230123	21:59:47	b53a9b07-d53d-4d25-b933-3e270bcb96f8	undefined: You are not authenticated!
+20230123	22:00:07	cfede7cd-dcaf-458b-a1a3-342117f38856	undefined: You are not authenticated!!
+20230123	22:00:25	8e6b5ad2-5a5c-497e-a45e-153e7fa16bc6	undefined: You are not authenticated!!
+20230123	22:03:05	d0ee304e-9f83-4e0e-8094-5959e28e9bc4	undefined: roles.includes(...).find is not a function
+20230123	22:03:08	7e9b95ea-86b6-4172-8b1b-9152e12017bf	undefined: roles.includes(...).find is not a function

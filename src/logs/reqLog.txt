@@ -203,3 +203,16 @@
 20230122	18:09:05	eb6564b2-2786-43ed-bc82-ee824a4f986f	GET	undefined	/me
 20230123	21:33:07	031dc210-9830-4d06-9a12-6e4b98c234f6	POST	undefined	/login
 20230123	21:39:50	87c23a4e-6a2e-47bb-ae85-d7912f2bf1a6	GET	undefined	/api/v1/logout
+20230123	21:43:12	21ae5bd4-e953-463b-8ac8-181985968b08	POST	undefined	/api/v1/login
+20230123	21:59:14	c4228b81-7002-46ba-847a-97139086b237	GET	undefined	/api/v1/logout
+20230123	21:59:47	91962a57-330d-4e8a-96c2-e6528d79fb2a	GET	undefined	/api/v1/logout
+20230123	22:00:07	0c66043d-8433-4815-8631-b924611f5ba8	GET	undefined	/api/v1/logout
+20230123	22:00:25	9c42ac0e-40d5-44c3-8f6c-e4470dcf488c	GET	undefined	/api/v1/logout
+20230123	22:00:41	6c90c1b9-5f05-4aa1-afa1-68dae254e266	GET	undefined	/api/v1/logout
+20230123	22:00:54	8311c66a-f866-4cbf-9f52-06704005df8c	GET	undefined	/api/v1/logout
+20230123	22:03:05	58338e9d-4fce-4c2b-9662-5c795808e87b	GET	undefined	/api/v1/logout
+20230123	22:03:08	3942ceed-8c79-4086-bcec-3e7ca06f5e7c	GET	undefined	/api/v1/logout
+20230123	22:04:06	51f56594-1b64-4ed9-9f4b-bd36387263be	GET	undefined	/api/v1/logout
+20230123	22:05:09	d9c5e252-d6da-4b4d-b9c8-260ec3071de5	GET	undefined	/api/v1/logout
+20230123	22:05:13	184e8ebe-70a1-4b14-b421-cf97d19f914f	GET	undefined	/api/v1/logout
+20230123	22:05:25	ebe21220-ba77-4ff1-bac2-5435eb64145e	GET	undefined	/api/v1/logout

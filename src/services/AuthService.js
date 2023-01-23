@@ -56,7 +56,7 @@ export default class AuthService{
         //Detected refresh token reuse
         if(!foundUser){
             jwt.verify(refresh_token,process.env.REFRESH_TOKEN_SECRET,async (err,decodeData) => {
-                if(err) return new ErrorHandler('Token is not valid!',403);
+                if(err) return new ErrorHandler('Your token is invalid!',403);
                 const hackedUser = await this.userRepository.GetUserById(decodeData.id);
                 hackedUser.IsActive = false;
                 await this.userRepository.Save(hackedUser);
@@ -64,7 +64,7 @@ export default class AuthService{
                  * @todo send recovery mail
                  */
             });
-            return new ErrorHandler('Token is not valid!!',403);
+            return new ErrorHandler('Your token is invalid!',403);
         }
         let newRefreshTokenArray = foundUser.RefreshTokens.filter(rt => rt !== refresh_token); 
         let credentials;
@@ -74,7 +74,7 @@ export default class AuthService{
                 foundUser.RefreshTokens = [...newRefreshTokenArray];
                 this.userRepository.Save(foundUser);
             }
-            if(err || foundUser.id !== decodedData.id) return new ErrorHandler('Token is not valid!!!',403);
+            if(err || foundUser.id !== decodedData.id) return new ErrorHandler('Your token is invalid!',403);
             credentials = this.GenerateAccessAndRefreshTokens(foundUser);
             foundUser.RefreshTokens = [...newRefreshTokenArray,credentials.refresh_token]
             await this.userRepository.Save(foundUser);
