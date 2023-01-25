@@ -9,7 +9,9 @@ import errorMiddleware from './middleware/errorMiddleware.js'
 import cookieParser from 'cookie-parser';
 import credentials from './middleware/credentials.js'
 import {apiLimiter} from './utils/limiter.js'
+//import routes
 import AuthRouter from './routes/AuthRouter.js'
+import UserRouter from './routes/UserRouter.js'
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -35,16 +37,10 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/api/',apiLimiter);
 
-app.use('/api/v1',AuthRouter);
+//Routers
+app.use(process.env.BASE_PATH,AuthRouter);
+app.use(process.env.BASE_PATH,UserRouter);
 
-app.post('/test',async (req,res,next) => {
-    const card = await Card.create(req.body);
-    res.status(201).json({
-        status:"SUCCESS",
-        statusCode:201,
-        card
-    })
-});
 
 app.use(errorMiddleware);
 

@@ -33,6 +33,28 @@ export default class UserRepository{
         return await User.findOne({RefreshTokens:refreshToken});
     }
     /**
+     * 
+     */
+    async GetAllUsers(){
+        return await User.find();
+    }
+    /**
+     * 
+     * @param {String} id 
+     * @param {Object:User} newUserData 
+     * @returns 
+     */
+    async FindByIdAndUpdate(id,newUserData){
+        return await User.findByIdAndUpdate(id,newUserData,{
+            new:true,
+            runValidators:true,
+            useFindAndModify:false
+        });
+    }
+    async FindByIdAndDelete(id){
+        return await User.findByIdAndDelete(id);
+    }
+    /**
      * @param {Object} user 
      * @returns saved user info
      */
