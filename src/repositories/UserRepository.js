@@ -21,8 +21,10 @@ export default class UserRepository{
      * @param {String} email the email of the user
      * @returns User object
      */
-    async GetUserByEmail(email){
-        return await User.findOne({Email:email}).select('+Password');
+    async GetUserByEmail(email,withPass = false){
+        if(withPass)
+            return await User.findOne({Email:email}).select('+Password');
+        return await User.findOne({Email:email});
     }
     /**
      * 

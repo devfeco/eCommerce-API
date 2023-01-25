@@ -27,7 +27,7 @@ export default class AuthService{
     async Login(req){
         const loginUserDTO = new LoginUserDTO(req.body);
         if(!loginUserDTO.Email || !loginUserDTO.Password) return new ErrorHandler('Email and password are required.',400);
-        const foundUser = await this.userRepository.GetUserByEmail(loginUserDTO.Email); 
+        const foundUser = await this.userRepository.GetUserByEmail(loginUserDTO.Email,true); 
         if(!foundUser) return new ErrorHandler('Invalid email or password',401);
         const match = foundUser.comparePassword(loginUserDTO.Password);
         if(!match) return new ErrorHandler('Invalid email or password',401);
