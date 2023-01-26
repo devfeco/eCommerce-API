@@ -38,8 +38,8 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 app.use('/api/',apiLimiter);
 
 //Routers
-app.use(process.env.BASE_PATH,AuthRouter);
-app.use(process.env.BASE_PATH,UserRouter);
+app.use('/api/v1',AuthRouter);
+app.use('/api/v1',UserRouter);
 
 
 app.use(errorMiddleware);

@@ -9,43 +9,30 @@ export default class UserRepository{
         return await User.create(createUserDTO);
     }
 
-    /**
-     * @param {String} id the id of the user
-     * @returns User object
-     */
-    async GetUserById(id){
+    async GetUserById(id,withPass=false){
+        if(withPass)
+            return await User.findById(id).select('+Password');
         return await User.findById(id);
     }
 
-    /**
-     * @param {String} email the email of the user
-     * @returns User object
-     */
     async GetUserByEmail(email,withPass = false){
         if(withPass)
             return await User.findOne({Email:email}).select('+Password');
         return await User.findOne({Email:email});
     }
-    /**
-     * 
-     * @param {*} refreshToken 
-     * @returns 
-     */
+
     async GetUserByRefreshToken(refreshToken){
         return await User.findOne({RefreshTokens:refreshToken});
     }
-    /**
-     * 
-     */
+
+    async GetUserByResetToken(token){
+        return await User.findOne({ResetPasswordToken:token,ResetPasswordExpire:{$gt:Date.now()}});
+    }
+
     async GetAllUsers(){
         return await User.find();
     }
-    /**
-     * 
-     * @param {String} id 
-     * @param {Object:User} newUserData 
-     * @returns 
-     */
+
     async FindByIdAndUpdate(id,newUserData){
         return await User.findByIdAndUpdate(id,newUserData,{
             new:true,
@@ -53,13 +40,11 @@ export default class UserRepository{
             useFindAndModify:false
         });
     }
+
     async FindByIdAndDelete(id){
         return await User.findByIdAndDelete(id);
     }
-    /**
-     * @param {Object} user 
-     * @returns saved user info
-     */
+
     async Save(user){
         return await user.save();
     }

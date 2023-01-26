@@ -1,6 +1,7 @@
 import UserRepository from "../repositories/UserRepository.js";
 import ErrorHandler from "../utils/errorhandler.js";
 import {sendMail} from '../utils/SendMail.js';
+import jwt from 'jsonwebtoken';
 
 export default class UserService{
     userRepository;
@@ -23,7 +24,7 @@ export default class UserService{
         if(!foundUser) return new ErrorHandler('User not found!',404);
         const resetToken = foundUser.getResetPasswordToken();
         await this.userRepository.Save(foundUser);
-        const resetPassURL = `${req.protocol}://${req.get("host")}/password/reset/${resetToken}`;
+        const resetPassURL = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
         const message = `Your password reset token id :- \n\n ${resetPassURL} \n\n If you not requested this mail then,please ignore it.`;
         try{
             await sendMail({
@@ -31,16 +32,29 @@ export default class UserService{
                 subject:`XYZ Shop Password Recovery`,
                 message
             });
-            return {status:200,message: `Email sent to ${foundUser.Email} successfully`,}
         }catch(err){
             foundUser.ResetPasswordExpire = undefined;
             foundUser.ResetPasswordToken = undefined;
             await this.userRepository.Save(foundUser);
             return new ErrorHandler(err.message,500);
         }
+        return {status:200,message: `Email sent to ${foundUser.Email} successfully`,}
     }
 
     async ResetPassword(req){
+        const user = await this.userRepository.GetUserByResetToken(req.params.token);
+        if(!user) return new ErrorHandler('Reset password token is invalid!',400);
+        await jwt.verify(req.params.token,process.env.RESET_TOKEN_SECRET,async (err,decodedData) => {
+            if(err || user.id !== decodedData?.UserInfo.id) return new ErrorHandler('Reset Password Token is invalid or has been expired',400);
+            user.Password = req.body.Password;
+            user.ResetPasswordExpire = undefined;
+            user.ResetPasswordToken = undefined;
+            await this.userRepository.Save(user);
+        });
+        return {status:200,user}
+    }
 
+    async UpdatePassword(req){
+        
     }
 }
