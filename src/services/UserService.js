@@ -55,6 +55,11 @@ export default class UserService{
     }
 
     async UpdatePassword(req){
-        
+        const user = await this.userRepository.GetUserById(req.user.id,true);
+        const match = await user.comparePassword(req.body.OldPassword);
+        if(!match) return new ErrorHandler('Old password is incorrect!',400);
+        user.Password = req.body.NewPassword;
+        await this.userRepository.Save(user);
+        return {status:200,user}
     }
 }
